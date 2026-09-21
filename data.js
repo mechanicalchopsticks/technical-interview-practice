@@ -1,7 +1,7 @@
 // ============================================================
 // PROBLEM INDEX
 // To add a new problem, append an entry to this array.
-// See CLAUDE.md § "Keeping the problem index up to date" for
+// See AGENTS.md § "Keeping the problem index up to date" for
 // field definitions, valid values, and badge colour rules.
 // ============================================================
 const PROBLEMS = [
@@ -365,6 +365,28 @@ const PROBLEMS = [
     language: "react",
     industry: "insurance-tech",
     tags: ["typescript", "useEffect", "useRef", "useMemo", "polling", "abort-controller", "compound-components"],
+    parts: 3,
+    level: "senior"
+  },
+  {
+    path: "react/practice_problems/problem_09_resource_finder.jsx",
+    test: "react/tests/test_problem_09_resource_finder.spec.js",
+    title: "Resource Finder",
+    description: "Build an interactive resource browser from nested local JSON data with category tabs, controlled search, combined filtering, and clickable detail panels.",
+    language: "react",
+    industry: "general",
+    tags: ["useState", "controlled-inputs", "filtering", "tabs", "conditional-rendering"],
+    parts: 3,
+    level: "senior"
+  },
+  {
+    path: "react/practice_problems/problem_10_session_browser.jsx",
+    test: "react/tests/test_problem_10_session_browser.spec.js",
+    title: "Workshop Session Browser",
+    description: "Build a local-data session browser with track tabs, controlled search, clickable speaker details, and persistent saved-session state.",
+    language: "react",
+    industry: "ed-tech",
+    tags: ["useState", "controlled-inputs", "filtering", "tabs", "conditional-rendering", "event-handling"],
     parts: 3,
     level: "senior"
   },

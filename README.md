@@ -1,6 +1,6 @@
 # Technical Interview Practice
 
-A collection of Software Engineer practice problems with test suites, designed to be generated and extended by an AI coding agent (Claude Code or similar).
+A collection of Software Engineer practice problems with test suites, designed to be generated and extended with Codex.
 
 ---
 
@@ -26,7 +26,8 @@ python/
   conftest.py                 # pytest config & --answer flag
 react/
   practice_problems/          # React/JSX/TSX starter files
-  src/App.jsx                 # Active problem (overwrite to work; restore with git)
+  practice_problem_answers/   # Isolated answer directories, each with App.jsx or App.tsx
+  src/App.jsx                 # Permanent placeholder (never edit during practice)
   src/main.jsx                # Vite entry point (do not modify)
   tests/                      # Playwright e2e specs (one per problem)
   package.json                # Vite + Playwright deps
@@ -43,7 +44,8 @@ golang/
   practice_problem_answers/   # cw_answer_NN_<name>.go files
   go.mod
 run_tests.sh                  # Unified test runner for all languages (see below)
-CLAUDE.md                     # Guidelines for the AI agent
+AGENTS.md                     # Canonical repository-wide Codex guidance
+CLAUDE.md                     # Lightweight Claude Code compatibility pointer
 ```
 
 ---
@@ -275,9 +277,9 @@ Replace every `panic("not implemented")` with a real implementation. Your answer
 ---
 
 ## Adding new problems with an AI agent
-⚠️ WARNING - PLEASE READ: If contributing, please do not add any problems verbatim from actual technical interviews. We don't want to get each other in trouble or cause issues for people actively interviewing. The `CLAUDE.md` file has instructions to scrub actual company names from problems, but please double check the code for that before submitting a PR.
+⚠️ WARNING - PLEASE READ: If contributing, please do not add any problems verbatim from actual technical interviews. We don't want to get each other in trouble or cause issues for people actively interviewing. The `AGENTS.md` file has instructions to scrub actual company names from problems, but please double check the code for that before submitting a PR.
 
-This repo is designed to be extended by prompting an AI coding agent. Open Claude Code (or your preferred agent) in this repo and describe what you want. The agent will read `CLAUDE.md` for conventions automatically.
+This repo is designed to be extended with Codex. Open Codex in this repo and describe what you want. Codex automatically discovers the repository-wide `AGENTS.md` and augments it with the `AGENTS.md` in the relevant language directory. Claude Code remains supported through the small `CLAUDE.md` compatibility files, which point to the canonical `AGENTS.md` guidance without duplicating it.
 
 A good prompt specifies: the language, the industry/domain, the core data structure or algorithm pattern, the number of parts, and any constraints on problem style. Example:
 
@@ -291,24 +293,23 @@ Generate a new Senior SWE interview problem for the python/ directory.
   (a job can't start until its dependencies complete), Part 3 priority ordering
   within the ready queue
 - Style: class-based, candidate chooses internal data structures
-- Follow all conventions in CLAUDE.md (fixtures, no class-level state,
+- Follow all conventions in AGENTS.md (fixtures, no class-level state,
   self-contained parts, composing methods, concrete usage example in docstring)
 - [optional] - please checkout this JD/company website, do some research on the company
    to see if the company asks a specific style of interview questions and base the practice 
    problem(s) off of that.
 
 After creating the problem and test files, add an entry to the PROBLEMS array
-in data.js following the format in CLAUDE.md.
+in data.js following the format in AGENTS.md.
 ```
 
 The agent will create:
 - `python/practice_problems/problem_NN_<name>.py` — the stub
 - `python/tests/test_problem_NN_<name>.py` — the test suite
-- An entry in `index.html`
+- An entry in the `PROBLEMS` array in `data.js`
 
 DO NOT ask it to improve existing problems or test suites, unless you don't plan to merge your branch into `main`
 as that will likely break other peoples' answers. Instead, if you would like to improve upon an existing problem/test
 just copy and paste it into a new problem/test file with something like `v.x` appended to the file name, and then try
 to improve the problem and/or test suite.
-
 

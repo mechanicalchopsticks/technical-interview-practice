@@ -12,7 +12,7 @@
 //   PRACTICE_ANSWER=practice_problem_answers/cw_answer_01_activity_feed npm run dev
 //   PRACTICE_ANSWER=practice_problem_answers/cw_answer_01_activity_feed npm run test:01
 //
-// See CLAUDE.md for the full workflow.
+// See AGENTS.md for the full workflow.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function App() {
